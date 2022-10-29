@@ -4,7 +4,7 @@
     "metadata": {
         "title": "AS-Import-AD-Group-Users-to-MS-Watchlist", 
         "description": "This playbook is intended to be run on a schedule. It will add the users from a specified Azure Active Directory group to a Microsoft Sentinel watchlist.",
-        "lastUpdateTime": "2022-10-27T18:18:05Z",
+        "lastUpdateTime": "2022-10-28T18:18:05Z",
         "entities": ["IP"], 
         "tags": ["Microsoft Sentinel", "Watchlist", "Azure Active Directory", "Group"], 
         "support": {
@@ -54,8 +54,8 @@
         {
             "name": "[concat(parameters('workspaceName'), '/Microsoft.SecurityInsights/ReferenceTemplate')]",
             "type": "Microsoft.OperationalInsights/workspaces/providers/Watchlists",
-            "description": "[parameters('WatchlistDescription')]",
             "properties": {
+                "description": "[parameters('WatchlistDescription')]",
                 "displayName": "[parameters('WatchlistName')]",
                 "watchlistAlias": "[parameters('WatchlistName')]",
                 "source": "[concat(parameters('WatchlistName'),'.csv')]",
@@ -115,7 +115,7 @@
                 "[resourceId('Microsoft.Web/connections', variables('azuresentinel'))]"
             ],
             "properties": {
-                "state": "Disabled",
+                "state": "Enabled",
                 "definition": {
                     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                     "contentVersion": "1.0.0.0",

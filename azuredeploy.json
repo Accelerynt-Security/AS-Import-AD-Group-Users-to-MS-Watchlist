@@ -27,22 +27,14 @@
         },
         "WatchlistName": {
             "type": "string",
-            "defaultValue": "HighValueTargetList",
             "metadata": {
-                "description": "The name of the Microsoft Sentinel watchlist to be created"
-            }
-        },
-        "WatchlistDescription": {
-            "type": "string",
-            "defaultValue": "High Value Target users",
-            "metadata": {
-                "description": "Optional description of the Microsoft Sentinel watchlist to be created"
+                "description": "The name of the Microsoft Sentinel watchlist"
             }
         },
         "WorkspaceName": {
             "type": "string",
             "metadata": {
-                "description": "The name of the Microsoft Sentinel workspace the watchlist will be housed in"
+                "description": "The name of the Microsoft Sentinel workspace the watchlist is located"
             }
         }
     },
@@ -51,25 +43,6 @@
         "azuresentinel": "[concat('azuresentinel-', parameters('PlaybookName'))]"
     },
     "resources": [
-        {
-            "name": "[concat(parameters('workspaceName'), '/Microsoft.SecurityInsights/ReferenceTemplate')]",
-            "type": "Microsoft.OperationalInsights/workspaces/providers/Watchlists",
-            "properties": {
-                "description": "[parameters('WatchlistDescription')]",
-                "displayName": "[parameters('WatchlistName')]",
-                "watchlistAlias": "[parameters('WatchlistName')]",
-                "source": "[concat(parameters('WatchlistName'),'.csv')]",
-                "provider": "Accelerynt",
-                "isDeleted": false,
-                "labels": [
-                ],
-                "defaultDuration": "P1000Y",
-                "contentType": "Text/Csv",
-                "numberOfLinesToSkip": 0,
-                "itemsSearchKey": "id",
-                "rawContent": "id,userPrincipalName\r\ninitial data,initial data\r\n"
-            }
-        },
         {
             "type": "Microsoft.Web/connections",
             "apiVersion": "2016-06-01",
@@ -190,7 +163,7 @@
                                                         }
                                                     },
                                                     "method": "put",
-                                                    "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(', subscription().subscriptionId, ')}/resourceGroups/@{encodeURIComponent(', resourceGroup().name, ')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceName'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
+                                                    "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(''', subscription().subscriptionId, ''')}/resourceGroups/@{encodeURIComponent(''', resourceGroup().name, ''')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceName'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
                                                 }
                                             }
                                         }
@@ -225,7 +198,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "[concat('/v1.0/groups/@{encodeURIComponent(''', parameters('GroupId', ''')}/members')]"
+                                "path": "[concat('/v1.0/groups/@{encodeURIComponent(''', parameters('GroupId'), ''')}/members')]"
                             }
                         },
                         "Initialize_variable_-_Watchlist_IDs": {
@@ -258,7 +231,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(', subscription().subscriptionId, ')}/resourceGroups/@{encodeURIComponent(', resourceGroup().name, ')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceName'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
+                                "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(''', subscription().subscriptionId, ''')}/resourceGroups/@{encodeURIComponent(''', resourceGroup().name, ''')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceName'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
                             }
                         }
                     },

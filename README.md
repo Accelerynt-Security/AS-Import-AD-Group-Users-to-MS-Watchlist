@@ -18,7 +18,7 @@ The following items are required under the template settings during deployment:
 
 * An [Azure Active Directory group Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#azure-active-directory-group-id)
 
-* A [Microsoft Sentinel workspace](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
+* A [Microsoft Sentinel watchlist](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
 
 # 
 ### Setup

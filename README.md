@@ -139,8 +139,6 @@ https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/microso
 
 Click the workspace name used during deployment and then click "**Watchlist**" under the "**Configuration**" section of the menu.
 
-![AS_Group_Watchlist_View_Watchlist_1](Images/AS_Group_Watchlist_View_Watchlist_1.png)
-
 Click the name of the watchlist used during deployment. This will pull up a menu on the right side of the page. Click "**Update watchlist**".
 
 ![AS_Group_Watchlist_View_Watchlist_2](Images/AS_Group_Watchlist_View_Watchlist_2.png)

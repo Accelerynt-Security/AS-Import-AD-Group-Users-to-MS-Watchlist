@@ -4,7 +4,7 @@
     "metadata": {
         "title": "AS-Import-AD-Group-Users-to-MS-Watchlist", 
         "description": "This playbook is intended to be run on a schedule. It will add the users from a specified Azure Active Directory group to a Microsoft Sentinel watchlist.",
-        "lastUpdateTime": "2022-10-28T18:18:05Z",
+        "lastUpdateTime": "2022-10-31T18:18:05Z",
         "entities": ["IP"], 
         "tags": ["Microsoft Sentinel", "Watchlist", "Azure Active Directory", "Group"], 
         "support": {
@@ -31,7 +31,7 @@
                 "description": "The name of the Microsoft Sentinel watchlist"
             }
         },
-        "WorkspaceName": {
+        "WorkspaceId": {
             "type": "string",
             "metadata": {
                 "description": "The name of the Microsoft Sentinel workspace the watchlist is located"
@@ -163,7 +163,7 @@
                                                         }
                                                     },
                                                     "method": "put",
-                                                    "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(''', subscription().subscriptionId, ''')}/resourceGroups/@{encodeURIComponent(''', resourceGroup().name, ''')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceName'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
+                                                    "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(''', subscription().subscriptionId, ''')}/resourceGroups/@{encodeURIComponent(''', resourceGroup().name, ''')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceId'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
                                                 }
                                             }
                                         }
@@ -231,7 +231,7 @@
                                     }
                                 },
                                 "method": "get",
-                                "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(''', subscription().subscriptionId, ''')}/resourceGroups/@{encodeURIComponent(''', resourceGroup().name, ''')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceName'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItem')]"
+                                "path": "[concat('/Watchlists/subscriptions/@{encodeURIComponent(''', subscription().subscriptionId, ''')}/resourceGroups/@{encodeURIComponent(''', resourceGroup().name, ''')}/workspaces/@{encodeURIComponent(''', parameters('WorkspaceId'), ''')}/watchlists/@{encodeURIComponent(''', parameters('WatchlistName'), ''')}/watchlistItems')]"
                             }
                         }
                     },

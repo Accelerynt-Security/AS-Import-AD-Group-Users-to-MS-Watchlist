@@ -20,6 +20,8 @@ The following items are required under the template settings during deployment:
 
 * A [Microsoft Sentinel watchlist](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
 
+* A [Microsoft Sentinel workspace Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#microsoft-sentinel-wprkspace-id)
+
 # 
 ### Setup
 
@@ -41,10 +43,6 @@ From the group "**Overview**" page, copy the value of the "**Object Id**" and sa
 Navigate to the Microsoft Sentinel page and select a workspace:
 
 https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/microsoft.securityinsightsarg%2Fsentinel
-
-Take note of the Microsoft Sentinel workspace name and save this for deployment.
-
-![AS_Group_Watchlist_Create_Watchlist_1](Images/AS_Group_Watchlist_Create_Watchlist_1.png)
 
 Under the "**Configuration**" section of the menu, click "**Watchlist**", then click "**Add new**".
 
@@ -70,6 +68,22 @@ Once your watchlist has been created, you can view the entries by clicking the w
 This will run a Kusto query for your watchlist and you should be able to see the initializing data that was just uploaded. Please note it may take a minute after the creation of your watchlist for the query to show results.
 
 ![AS_Group_Watchlist_Create_Watchlist_7](Images/AS_Group_Watchlist_Create_Watchlist_7.png)
+
+
+#### Microsoft Sentinel Workspace Id:
+
+Navigate to the Microsoft Sentinel page and select the same workspace as before:
+
+https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/microsoft.securityinsightsarg%2Fsentinel
+
+Under the "**Configuration**" section of the menu, click "**Settings**", then click the "**Workspace settings**" tab.
+
+![AS_Group_Watchlist_Workspace_Id_1](Images/AS_Group_Watchlist_Workspace_Id_1.png)
+
+Copy the value of the "**Workspace ID**" field and save it for deployment.
+
+![AS_Group_Watchlist_Workspace_Id_2](Images/AS_Group_Watchlist_Workspace_Id_2.png)
+
 
 #
 ### Deployment                                                                                                         
@@ -97,7 +111,7 @@ In the **Instance Details** section:
 
 * **Watchlist Name**: The name of the watchlist referenced in [Create a Microsoft Sentinel Watchlist](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
 
-* **Workspace Name**: The name of the Microsoft Sentinel workspace the watchlist was created in, referenced in [Create a Microsoft Sentinel Watchlist](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
+* **Workspace Id**: The Id of the Microsoft Sentinel workspace the watchlist was created in, referenced in [Microsoft Sentinel workspace Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#microsoft-sentinel-wprkspace-id)
 
 Towards the bottom, click on “**Review + create**”. 
 

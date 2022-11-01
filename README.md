@@ -20,7 +20,7 @@ The following items are required under the template settings during deployment:
 
 * A [Microsoft Sentinel watchlist](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
 
-* A [Microsoft Sentinel workspace Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#microsoft-sentinel-workspace-id)
+* A [Microsoft Sentinel workspace Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#microsoft-sentinel-wprkspace-id)
 
 # 
 ### Setup
@@ -111,7 +111,7 @@ In the **Instance Details** section:
 
 * **Watchlist Name**: The name of the watchlist referenced in [Create a Microsoft Sentinel Watchlist](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#create-a-microsoft-sentinel-watchlist)
 
-* **Workspace Id**: The Id of the Microsoft Sentinel workspace the watchlist was created in, referenced in [Microsoft Sentinel workspace Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#microsoft-sentinel-workspace-id)
+* **Workspace Id**: The Id of the Microsoft Sentinel workspace the watchlist was created in, referenced in [Microsoft Sentinel workspace Id](https://github.com/Accelerynt-Security/AS-Import-AD-Group-Users-to-MS-Watchlist#microsoft-sentinel-wprkspace-id)
 
 Towards the bottom, click on “**Review + create**”. 
 
@@ -130,17 +130,26 @@ Click on the “**Edit**” button. This will bring us into the Logic Apps Desig
 
 ![AS_Group_Watchlist_Deploy_4](Images/AS_Group_Watchlist_Deploy_4.png)
 
-Before the playbook can be run, the Azure AD connection used in the second step will either need to be authorized, or an existing authorized connection may be alternatively selected.  
+Before the playbook can be run successfully, the Azure AD connection used in the second step and the Microsoft Sentinel connection used in the fourth and ninth steps will either need to be authorized, or existing authorized connections may be alternatively selected.  
 
 ![AS_Group_Watchlist_Deploy_5](Images/AS_Group_Watchlist_Deploy_5.png)
 
-To validate this connection, expand the second step labeled "**Connections**" and click the exclamation point icon next to the name matching the playbook.
+To validate the Azure AD connection, expand the second step labeled "**Connections**" and click the exclamation point icon next to the name matching the playbook.
                                                                                                 
 ![AS_Group_Watchlist_Deploy_6](Images/AS_Group_Watchlist_Deploy_6.png)
 
-When prompted, sign in to validate the connection.                                                                                                
-                                                                                                
+When prompted, sign in to validate the connection.  
+
 ![AS_Group_Watchlist_Deploy_7](Images/AS_Group_Watchlist_Deploy_7.png)
+
+Repeat the process for the Microsoft Sentinel connection.
+
+![AS_Group_Watchlist_Deploy_8](Images/AS_Group_Watchlist_Deploy_8.png)
+
+Returning to the "**Overview**" page of the logic app, it can now be run successfully.
+
+![AS_Group_Watchlist_Deploy_9](Images/AS_Group_Watchlist_Deploy_9.png)
+
 
 # 
 ### Editing the Microsoft Sentinel Watchlist

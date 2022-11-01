@@ -4,8 +4,7 @@
     "metadata": {
         "title": "AS-Import-AD-Group-Users-to-MS-Watchlist", 
         "description": "This playbook is intended to be run on a schedule. It will add the users from a specified Azure Active Directory group to a Microsoft Sentinel watchlist.",
-        "lastUpdateTime": "2022-10-31T18:18:05Z",
-        "entities": ["IP"], 
+        "lastUpdateTime": "2022-11-01T18:18:05Z",
         "tags": ["Microsoft Sentinel", "Watchlist", "Azure Active Directory", "Group"], 
         "support": {
             "tier": "developer"
